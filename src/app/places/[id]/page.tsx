@@ -9,8 +9,9 @@ interface PlacePageProps {
 
 export default async function PlacePage({ params }: PlacePageProps) {
   const resolvedParams = await params;
+  console.log(resolvedParams)
 
-  const res = await fetch(`https://airbnb-backend-qwox.onrender.com/houses/${resolvedParams}`, {
+  const res = await fetch(`https://airbnb-backend-qwox.onrender.com/houses/${resolvedParams.id}`, {
     next: { revalidate: 6000 },
   })
   if (!res.ok) {
