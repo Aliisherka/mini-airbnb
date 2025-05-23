@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Place } from './types';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,7 +26,7 @@ export default async function HomePage() {
       mt-6 
       md:mt-4'
     >
-      {places.map((place) => (
+      {places.map((place: Place) => (
         <Link 
           href={`/places/${place._id}`}
           key={place._id}

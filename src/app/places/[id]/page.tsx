@@ -1,8 +1,16 @@
 import Link from "next/link"
 import Image from 'next/image';
 
-export default async function PlacePage({ params }) {
-  const res = await fetch(`https://airbnb-backend-qwox.onrender.com/houses/${params.id}`, {
+interface PlacePageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default async function PlacePage({ params }: PlacePageProps) {
+  const resolvedParams = await params;
+
+  const res = await fetch(`https://airbnb-backend-qwox.onrender.com/houses/${resolvedParams}`, {
     next: { revalidate: 6000 },
   })
   if (!res.ok) {
