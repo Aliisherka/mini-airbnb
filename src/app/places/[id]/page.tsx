@@ -12,7 +12,7 @@ export default async function PlacePage({ params }: PlacePageProps) {
   console.log(resolvedParams)
 
   const res = await fetch(`https://airbnb-backend-qwox.onrender.com/houses/${resolvedParams.id}`, {
-    next: { revalidate: 6000 },
+    next: { revalidate: 86400 },
   })
   if (!res.ok) {
     return <h1>House not found</h1>

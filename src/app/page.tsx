@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
   const res = await fetch('https://airbnb-backend-qwox.onrender.com/houses', {
-    next: { revalidate: 6000 },
+    next: { revalidate: 86400 },
   })
   const places = await res.json();
 
